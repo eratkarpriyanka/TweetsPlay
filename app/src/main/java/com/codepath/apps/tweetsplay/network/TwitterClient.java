@@ -32,6 +32,7 @@ public class TwitterClient extends OAuthBaseClient {
 
 	public static final String KEY_COUNT = "count";
 	public static final String KEY_SINCE_ID = "since_id";
+	private static final String KEY_MAX_ID = "max_id";
 
 	public TwitterClient(Context context) {
 		super(context, REST_API_CLASS, BASE_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
@@ -47,12 +48,16 @@ public class TwitterClient extends OAuthBaseClient {
 		client.get(apiUrl, params, handler);
 	}
 
-	public void getTimeline(AsyncHttpResponseHandler responseHandler){
+	public void callTimeline(Context context,int offset,long maxId){
 
 		String apiUrl = getApiUrl(HOME_TIMELINE_API);
 		RequestParams params = new RequestParams();
-		params.put(KEY_COUNT,25);
-		params.put(KEY_SINCE_ID,1);
+		params.put(KEY_COUNT,10);
+		params.put(KEY_SINCE_ID,offset);
+		if(maxId!=-1){
+			params.put(KEY_MAX_ID,maxId);
+		}
+		WSResponseHandler responseHandler = new WSResponseHandler(context);
 		getClient().get(apiUrl,params,responseHandler);
 	}
 

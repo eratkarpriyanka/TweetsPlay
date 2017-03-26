@@ -3,6 +3,7 @@
 
     <string name="app_name">Tweets Play</string>
     <string name="login_label">Connect to play with tweets :)</string>
+    <string name="network_failure">There is a bit problem connecting with server.</string>
 
     <style name="title_activity_photos">Home Timeline</style>
 </resources>

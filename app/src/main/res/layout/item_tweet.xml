@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="@dimen/tweet_padding"
+    android:descendantFocusability="blocksDescendants">
+
+    <FrameLayout
+        android:id="@+id/flPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:padding="2dp"
+        android:layout_marginRight="@dimen/img_margin_right">
+
+        <ImageView
+            android:id="@+id/ivProfilePhoto"
+            android:layout_width="@dimen/tweet_img_width"
+            android:layout_height="@dimen/tweet_img_height"
+            tools:src="@drawable/ic_launcher"
+            />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/flPhoto"
+        android:layout_toEndOf="@id/flPhoto"
+        android:layout_marginRight="@dimen/name_margin_right"
+        style="@style/UserName"
+        tools:text="Name"/>
+
+    <TextView android:id="@+id/tvScreenName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tvName"
+        android:layout_toRightOf="@id/tvName"
+        style="@style/UserScrName"
+        tools:text="Screen Name"/>
+
+    <TextView
+        android:id="@+id/tvText"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:text="Text-- this is a large text "
+        android:layout_toRightOf="@id/flPhoto"
+        android:layout_toEndOf="@id/flPhoto"
+        android:layout_below="@id/tvName"
+        style="@style/Body"
+        android:autoLink="all"
+        android:textColorLink="@color/colorPrimaryDark"
+        android:layout_marginTop="@dimen/text_margin"
+        />
+
+</RelativeLayout>

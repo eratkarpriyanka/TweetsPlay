@@ -10,7 +10,27 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="UserName">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style name="UserScrName">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style name="Body">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:typeface">sans</item>
+    </style>
 </resources>
