@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.codepath.apps.tweetsplay.activities.TweetDetailActivity">
+
+    <include layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true">
+    </include>
+
+    <ScrollView android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+       >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <FrameLayout
+                android:id="@+id/flPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:padding="2dp"
+                android:layout_marginRight="@dimen/img_margin_right">
+
+                <ImageView
+                    android:id="@+id/ivProfilePhoto"
+                    android:layout_width="@dimen/tweet_img_width"
+                    android:layout_height="@dimen/tweet_img_height"
+                    tools:src="@drawable/ic_launcher"
+                    />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/flPhoto"
+                android:layout_toEndOf="@id/flPhoto"
+                android:layout_marginRight="@dimen/name_margin_right"
+                style="@style/UserName"
+                tools:text="Name"/>
+
+            <TextView android:id="@+id/tvScreenName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/flPhoto"
+                android:layout_toRightOf="@id/flPhoto"
+                android:layout_below="@id/tvName"
+                style="@style/UserScrName"
+                tools:text="Screen Name"/>
+
+            <TextView
+                android:id="@+id/tvText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Text-- this is a large text "
+                android:layout_alignStart="@id/flPhoto"
+                android:layout_alignLeft="@id/flPhoto"
+                android:layout_below="@id/flPhoto"
+                style="@style/Body"
+                android:typeface="monospace"
+                android:textSize="15sp"
+                android:autoLink="all"
+                android:textColorLink="@color/colorPrimaryDark"
+                android:layout_marginTop="@dimen/text_margin"
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <EditText android:id="@+id/etReply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_below="@id/scrollView"
+        android:layout_above="@+id/btnReply"
+        android:text="text" />
+
+    <Button android:id="@+id/btnReply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/reply"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
+
+</RelativeLayout>

@@ -5,7 +5,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -36,6 +39,7 @@ public class TimelineActivity extends AppCompatActivity implements IWSResponseLi
     private EndlessScrollListener scrollListener;
     private UIHandler uiHandler;
     private Message msg;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,13 @@ public class TimelineActivity extends AppCompatActivity implements IWSResponseLi
 
     private void setViews() {
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        /*// Display icon in the toolbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.twitter_icon);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+*/
         listTweets = new ArrayList<Tweet>();
         lvTweets = (ListView)findViewById(R.id.lvTweets);
         adapter = new TweetsArrayAdapter(this,listTweets);
@@ -166,5 +177,21 @@ public class TimelineActivity extends AppCompatActivity implements IWSResponseLi
             }
 
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.timeline_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==R.id.tweetCompose){
+            Toast.makeText(this,"Composing Toast",Toast.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
