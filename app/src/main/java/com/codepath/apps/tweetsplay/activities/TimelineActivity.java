@@ -6,6 +6,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,11 +22,13 @@ import com.codepath.apps.tweetsplay.utils.EndlessScrollListener;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-public class TimelineActivity extends AppCompatActivity implements IWSResponseListener{
+public class TimelineActivity extends AppCompatActivity implements IWSResponseListener, AdapterView.OnItemClickListener {
 
+    private static final String TAG = TimelineActivity.class.getSimpleName();
     private static final int CALL_API = 111;
     private static final int LIMIT_PER_SCROLL = 25;
     private static final int CALL_NEW_API = 112;
+
     private ListView lvTweets;
     private TweetsArrayAdapter adapter;
     private ArrayList<Tweet> listTweets;
@@ -60,6 +64,7 @@ public class TimelineActivity extends AppCompatActivity implements IWSResponseLi
             }
         };
         lvTweets.setOnScrollListener(scrollListener);
+        lvTweets.setOnItemClickListener(this);
     }
 
     // Append the next page of data into the adapter
@@ -118,6 +123,12 @@ public class TimelineActivity extends AppCompatActivity implements IWSResponseLi
 
         String errorString = getResources().getString(R.string.network_failure);
         Toast.makeText(TimelineActivity.this,errorString,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+        Log.d(TAG,"item clicked"+position);
     }
 
 

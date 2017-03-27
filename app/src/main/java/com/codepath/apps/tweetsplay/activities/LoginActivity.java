@@ -7,8 +7,12 @@ import android.view.Menu;
 import android.view.View;
 
 import com.codepath.apps.tweetsplay.R;
+import com.codepath.apps.tweetsplay.models.SampleModel;
 import com.codepath.apps.tweetsplay.network.TwitterClient;
 import com.codepath.oauth.OAuthLoginActionBarActivity;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
+
+import java.util.List;
 
 public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 
@@ -18,6 +22,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+
 	}
 
 
@@ -36,6 +41,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 		Log.d(TAG,"LOgin Success");
 		Intent intent = new Intent(this, TimelineActivity.class);
 		startActivity(intent);
+
 	}
 
 	// OAuth authentication flow failed, handle the error
